@@ -1,8 +1,8 @@
 import React from "react";
-import EventPractice from "./EventPractice";
+import Vaildation from "./Vaildation";
 
 const App = () => {
-  return <EventPractice />;
+  return <Vaildation />;
 };
 
 export default App;
