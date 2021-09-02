@@ -1,8 +1,8 @@
 import React from "react";
-import Average from "./Component/Average";
+import SassComponent from "./Component/SassComponent";
 
 const App = () => {
-  return <Average />;
+  return <SassComponent />;
 };
 
 export default App;
