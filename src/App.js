@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 // import SassComponent from "./Component/SassComponent";
 // import CSSModule from "./Component/CSSModule";
 
@@ -24,9 +24,23 @@ const App = () => {
       checked: false,
     },
   ]);
+
+  const nextID = useRef(4);
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextID.current,
+        text,
+        checked: false,
+      };
+      setTodos(todos.concat(todo));
+      nextID.current += 1;
+    },
+    [todos]
+  );
   return (
     <TodoTemplate>
-      <TodoInsert />
+      <TodoInsert onInsert={onInsert} />
       <TodoList todos={todos} />
     </TodoTemplate>
   );
