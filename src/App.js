@@ -6,24 +6,20 @@ import TodoTemplate from "./TodoList/TodoTemplate";
 import TodoInsert from "./TodoList/TodoInsert";
 import TodoList from "./TodoList/TodoList";
 
-const App = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "리액트의 기초 알아보기",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "컴포넌트 스타일링 해보기",
-      checked: true,
-    },
-    {
-      id: 3,
-      text: "일정 관리 앱 만들어보기",
+function createBulkTodos() {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
       checked: false,
-    },
-  ]);
+    });
+  }
+  return array;
+}
+
+const App = () => {
+  const [todos, setTodos] = useState(createBulkTodos);
 
   // ID값은 렌더링되는 정보가 아님, 값이 바뀐다고 해서 컴포넌트가 리렌더링 될 필요 없음
   const nextID = useRef(4);
