@@ -22,6 +22,9 @@
     &.checked {
       svg {
         color: #adb5bd;
+      }
+      .text {
+        color: #adb5bd;
         text-decoration: line-through;
       }
     }
